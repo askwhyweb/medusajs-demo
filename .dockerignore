@@ -1,0 +1,16 @@
+node_modules
+**/node_modules
+.pnpm-store
+.turbo
+.cache
+.medusa
+.next
+dist
+build
+.git
+.github
+.vscode
+coverage
+*.log
+*.tmp
+*.swp
