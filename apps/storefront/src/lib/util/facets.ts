@@ -12,7 +12,7 @@ import { HttpTypes } from "@medusajs/types"
  * URL contract: each facet is a query param `f_<slug>` whose value is a
  * pipe-separated list of selected raw values, e.g. `?f_brand=Aurora&f_color=Ocean Blue|Midnight Black`.
  * Pipe (not comma) is used because some facet values contain commas (e.g. the price
- * bucket label "Under ₨25,000").
+ * bucket label "Under £25,000").
  */
 
 export const FACET_PARAM_PREFIX = "f_"
@@ -34,12 +34,12 @@ export type PriceBucket = {
   max: number
 }
 
-// PKR price buckets sized to the demo electronics catalog.
+// GBP price buckets sized to the demo electronics catalog.
 export const PRICE_BUCKETS: PriceBucket[] = [
-  { label: "Under ₨25,000", min: 0, max: 25_000 },
-  { label: "₨25,000 – ₨75,000", min: 25_000, max: 75_000 },
-  { label: "₨75,000 – ₨150,000", min: 75_000, max: 150_000 },
-  { label: "Over ₨150,000", min: 150_000, max: Number.POSITIVE_INFINITY },
+  { label: "Under £25,000", min: 0, max: 25_000 },
+  { label: "£25,000 - £75,000", min: 25_000, max: 75_000 },
+  { label: "£75,000 - £150,000", min: 75_000, max: 150_000 },
+  { label: "Over £150,000", min: 150_000, max: Number.POSITIVE_INFINITY },
 ]
 
 export function slugifyFacet(value: string): string {

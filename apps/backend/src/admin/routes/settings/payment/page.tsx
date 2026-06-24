@@ -51,7 +51,7 @@ const PaymentSettingsPage = () => {
             sort_order: 1,
             payload: {
               bank_name: "Demo Bank",
-              account_name: "Medusa Demo Store",
+              account_name: "MedusaJS Demo for Fivetech",
               account_number: "000123456789",
               iban: "PK00DEMO000123456789",
               swift: "DEMOPKKA",

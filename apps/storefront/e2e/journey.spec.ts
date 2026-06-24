@@ -78,12 +78,12 @@ test("storefront → backend purchase journey", async ({ page, request }) => {
   await page.getByTestId("shipping-first-name-input").fill("Ada")
   await page.getByTestId("shipping-last-name-input").fill("Lovelace")
   await page.getByTestId("shipping-address-input").fill("1 Demo Street")
-  await page.getByTestId("shipping-postal-code-input").fill("74000")
-  await page.getByTestId("shipping-city-input").fill("Karachi")
-  await page.getByTestId("shipping-province-input").fill("Sindh")
+  await page.getByTestId("shipping-postal-code-input").fill("SW1A 1AA")
+  await page.getByTestId("shipping-city-input").fill("London")
+  await page.getByTestId("shipping-province-input").fill("London")
   await page
     .getByTestId("shipping-country-select")
-    .selectOption(process.env.NEXT_PUBLIC_DEFAULT_REGION || "pk")
+    .selectOption(process.env.NEXT_PUBLIC_DEFAULT_REGION || "gb")
   await page.getByTestId("shipping-email-input").fill("ada@example.com")
   await page.getByTestId("submit-address-button").click()
 

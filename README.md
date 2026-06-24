@@ -1,6 +1,6 @@
-# Medusa Demo Store
+# MedusaJS Demo for Fivetech
 
-Local Medusa demo store for evaluating the Medusa backend, Medusa Admin, PostgreSQL, Redis, demo catalog data, and the Next.js storefront.
+Local MedusaJS demo store for Fivetech, evaluating the Medusa backend, Medusa Admin, PostgreSQL, Redis, demo catalog data, and the Next.js storefront.
 
 Tested with Medusa `2.16.0`.
 
@@ -71,7 +71,7 @@ Recommended product setup:
 1. Open `Catalog > Products` and select `Create`.
 2. Enter a title and a URL-safe handle.
 3. Add at least one variant.
-4. Add at least one price in `PKR`.
+4. Add at least one price in `GBP`.
 5. Upload a product image.
 6. Set the product status to `Published`.
 7. Assign the product to the default sales channel.
@@ -79,11 +79,11 @@ Recommended product setup:
 
 For this demo store, keep `Manage inventory` off unless you explicitly want to test Medusa inventory management. The storefront does not rely on pickup fulfillment or stock reservation.
 
-If a new product does not appear at `http://localhost:8000/pk/products/<handle>`, confirm:
+If a new product does not appear at `http://localhost:8000/gb/products/<handle>`, confirm:
 
 - The handle matches the storefront URL exactly.
 - The product is published.
-- The product has a price in `PKR`.
+- The product has a price in `GBP`.
 - The product is linked to the default sales channel.
 
 If the product is saved in Admin but the storefront still shows an older version, open `Admin > Cache Refresh` at `http://localhost:9000/app/cache` and click `Refresh Storefront Cache`. This rotates the shared `_medusa_cache_id` namespace and asks the storefront to invalidate the previous cached data for the current browser session.
@@ -92,7 +92,7 @@ Recommended product workflow:
 
 1. Create or edit the product in `Catalog > Products`.
 2. Add a stable handle and at least one variant.
-3. Add a price in `PKR` for the default sales channel.
+3. Add a price in `GBP` for the default sales channel.
 4. Upload the product image and set the status to `Published`.
 5. Save the product.
 6. Refresh the storefront cache from `Admin > Cache Refresh`.
@@ -114,7 +114,7 @@ The seed includes:
 - 4 category niches
 - Sale pricing
 - Inventory quantity
-- Pakistan region setup with `PKR`
+- Single region setup with `GBP`
 - Basic shipping options
 
 The storefront homepage shows category tiles and featured products from the seeded catalog.
@@ -125,8 +125,8 @@ The seed also writes the storefront runtime env file used by the Next.js contain
 
 - Backend: `http://localhost:9000`
 - Admin: `http://localhost:9000/app`
-- Storefront: `http://localhost:8000/pk`
-- Storefront root redirects to the default region route at `/pk`
+- Storefront: `http://localhost:8000/gb`
+- Storefront root redirects to the default region route at `/gb`
 - Use `localhost` in the browser so the Medusa Admin and auth cookies stay on the same origin.
 
 ## Stop The Environment
@@ -191,8 +191,8 @@ Use this when you want a fully clean reinstall.
 
 ### Legacy currency data still appears
 
-- This demo store is PKR-only.
-- If you reused an older database volume and still see EUR in the storefront or product prices, reset the stack with `docker compose down -v --remove-orphans` and start again.
+- This demo store is GBP-only.
+- If you reused an older database volume and still see another currency in the storefront or product prices, reset the stack with `docker compose down -v --remove-orphans` and start again.
 - Then rerun the seed step if you want to repopulate the catalog without stale currency rows.
 
 ### Port already in use

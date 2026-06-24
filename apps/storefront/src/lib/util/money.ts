@@ -19,7 +19,7 @@ export const convertToLocale = ({
     ? new Intl.NumberFormat(locale, {
         style: "currency",
         currency: currency_code,
-        // Prefer the narrow symbol so PKR renders as "Rs" instead of the "PKR" code.
+        // Prefer the narrow symbol so GBP renders as "£" instead of the currency code.
         currencyDisplay: "narrowSymbol",
         minimumFractionDigits,
         maximumFractionDigits,

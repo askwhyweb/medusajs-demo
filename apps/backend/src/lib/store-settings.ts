@@ -87,7 +87,7 @@ function buildShippingPrices(payload: ShippingMethodPayload) {
 
   return [
     {
-      currency_code: "pkr",
+      currency_code: "gbp",
       amount: payload.price,
       ...(rules ? { rules } : {}),
     },
@@ -186,7 +186,7 @@ export const DEFAULT_PAYMENT_SETTINGS: StoreSettingsSeed = {
   sort_order: 1,
   payload: {
     bank_name: "Demo Bank",
-    account_name: "Medusa Demo Store",
+    account_name: "MedusaJS Demo for Fivetech",
     account_number: "000123456789",
     iban: "PK00DEMO000123456789",
     swift: "DEMOPKKA",

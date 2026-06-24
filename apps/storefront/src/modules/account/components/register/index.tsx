@@ -21,11 +21,11 @@ const Register = ({ setCurrentView }: Props) => {
       data-testid="register-page"
     >
       <h1 className="text-large-semi uppercase mb-6">
-        Become a Medusa Store Member
+        Join MedusaJS Demo for Fivetech
       </h1>
       <p className="text-center text-base-regular text-ui-fg-base mb-4">
-        Create your Medusa Store Member profile, and get access to an enhanced
-        shopping experience.
+        Create your account to save details, track orders, and move through
+        checkout faster.
       </p>
       {message?.state === "verification_required" && (
         <div
@@ -81,7 +81,7 @@ const Register = ({ setCurrentView }: Props) => {
           data-testid="register-error"
         />
         <span className="text-center text-ui-fg-base text-small-regular mt-6">
-          By creating an account, you agree to Medusa Store&apos;s{" "}
+          By creating an account, you agree to MedusaJS Demo for Fivetech&apos;s{" "}
           <LocalizedClientLink
             href="/content/privacy-policy"
             className="underline"

@@ -34,9 +34,9 @@ import {
   STORE_SETTING_SCOPES,
 } from "../lib/store-settings"
 
-const CURRENCY_CODE = "pkr"
-const DEFAULT_REGION_COUNTRY = "pk"
-const DEFAULT_REGION_NAME = "Pakistan"
+const CURRENCY_CODE = "gbp"
+const DEFAULT_REGION_COUNTRY = "gb"
+const DEFAULT_REGION_NAME = "United Kingdom"
 
 const CATEGORY_NAME_BY_KEY: Record<string, string> = {
   phones: "Phones and Accessories",
@@ -679,10 +679,10 @@ export default async function seed({
     },
   })
 
-  // Medusa's bootstrap creates a default store with EUR as the default currency, and
+  // Medusa's bootstrap creates a default store with GBP as the default currency, and
   // the Admin dashboard operates on that single store. Update it in place (rather
   // than creating a second store) so the demo — and anything a merchant creates in
-  // Admin — uses PKR (Rs.) as the one and only currency.
+  // Admin — uses GBP as the one and only currency.
   const { data: existingStores = [] } = await query.graph({
     entity: "store",
     fields: ["id", "name"],
@@ -690,7 +690,7 @@ export default async function seed({
 
   let store
   const storeUpdate = {
-    name: "Medusa Demo Store",
+    name: "MedusaJS Demo for Fivetech",
     supported_currencies: [
       {
         currency_code: CURRENCY_CODE,
@@ -753,10 +753,10 @@ export default async function seed({
     input: {
       locations: [
         {
-          name: "Karachi Warehouse",
+          name: "London Warehouse",
           address: {
-            city: "Karachi",
-            country_code: "PK",
+            city: "London",
+            country_code: "GB",
             address_1: "Demo Warehouse",
           },
         },
@@ -790,7 +790,7 @@ export default async function seed({
   }
 
   const fulfillmentSet = await fulfillmentModuleService.createFulfillmentSets({
-    name: "Karachi Warehouse delivery",
+    name: "London Warehouse delivery",
     type: "shipping",
     service_zones: [
       {

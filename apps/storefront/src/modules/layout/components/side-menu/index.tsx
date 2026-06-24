@@ -178,7 +178,7 @@ const SideMenu = ({
                         />
                       </div>
                       <Text className="flex justify-between txt-compact-small">
-                        © {new Date().getFullYear()} Medusa Store. All rights
+                        © {new Date().getFullYear()} MedusaJS Demo for Fivetech. All rights
                         reserved.
                       </Text>
                     </div>
