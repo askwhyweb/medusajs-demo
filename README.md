@@ -1,6 +1,6 @@
 # MedusaJS Commerce Platform Evaluation
 
-A local containerised evaluation of Medusa as a commerce backend with a Next.js storefront. The stack brings together Medusa, PostgreSQL, Redis and seeded catalogue data to explore the platform boundary between administration, Store API and storefront behaviour. It is a development evaluation, not a production deployment.
+A local containerised evaluation of Medusa as a commerce backend with a Next.js storefront. The stack brings together Medusa, PostgreSQL, Redis and seeded catalogue data to explore the platform boundary between administration, Store API and storefront behaviour. This is a development evaluation, not a production deployment.
 
 ## Architecture
 
@@ -20,14 +20,15 @@ The cache design is intentionally scoped to this demo. It is not a substitute fo
 
 Prerequisites: Docker Engine or Docker Desktop, Docker Compose v2 and Git.
 
-1. Copy the example environment file and set unique local values for the database password, admin password, JWT secret and cookie secret. Do not reuse credentials from another environment.
-2. Start the stack:
+1. Copy the example environment file: `cp .env.example .env`.
+2. Set a unique `POSTGRES_PASSWORD`, `JWT_SECRET`, `COOKIE_SECRET` and `ADMIN_PASSWORD` in the untracked `.env` file. Use separate random values; hexadecimal values from `openssl rand -hex 32` work for these local settings. The database password is used to construct the Compose database URL, so avoid characters that require URL encoding.
+3. Start the stack:
 
 ```bash
-cp .env.example .env
-# Edit .env and set local-only credentials and secrets.
 docker compose up --build
 ```
+
+Compose stops with a clear error if a required local secret is missing. The example file contains empty secret fields and must be filled before startup. Never commit the resulting `.env` file or reuse values from another environment.
 
 The backend prepares the database and seeds the catalogue during startup. Admin is available at `http://localhost:9000/app`; the storefront is at `http://localhost:8000/gb`. Use localhost so the Admin and authentication cookies share an origin.
 
@@ -35,10 +36,10 @@ To stop while retaining local data, run `docker compose down`. A full reset remo
 
 ## Trade-offs and Limitations
 
-- This stack is for local evaluation; defaults and localhost ports are not production safeguards.
+- This stack is for local evaluation; localhost ports and local storage are not production safeguards.
 - The demo is GBP-only, uses placeholder product imagery and has no production payment or fulfilment integration.
 - Redis supports local sessions and cache workflows; production topology and invalidation semantics need separate validation.
 - Compose PostgreSQL disables SSL for local connectivity; do not carry that setup into a production database connection.
 - A reused database volume may contain older seed data; reset only when you intend to discard that local data.
 
-The repository is retained as a platform evaluation and implementation reference. For full operating and troubleshooting steps, see the compose configuration and service scripts in the repository.
+The repository is retained as a platform evaluation and implementation reference. For detailed implementation and troubleshooting, see the compose configuration and service scripts.
