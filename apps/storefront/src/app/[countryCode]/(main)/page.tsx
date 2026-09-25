@@ -10,9 +10,9 @@ import { getCmsBlocks } from "@lib/data/settings"
 import { Heading, Text } from "@modules/common/components/ui"
 
 export const metadata: Metadata = {
-  title: "MedusaJS Demo for Fivetech",
+  title: "MedusaJS Commerce Platform Evaluation",
   description:
-    "A local Medusa demo store with a seeded electronics catalog for Fivetech.",
+    "A local Medusa commerce evaluation with a seeded electronics catalog.",
 }
 
 export default async function Home(props: {
