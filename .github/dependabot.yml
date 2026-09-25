@@ -1,0 +1,24 @@
+# Dependabot: security updates only.
+#
+# open-pull-requests-limit: 0 turns off routine version-bump PRs. Security
+# update PRs are unaffected by this limit and are still raised for every
+# Dependabot alert (enabled under Settings > Code security > Dependabot
+# security updates).
+#
+# The group rolls every security fix for this pnpm workspace into a single PR
+# instead of one PR per package and manifest.
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directories:
+      - "/"
+      - "/apps/backend"
+      - "/apps/storefront"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 0
+    groups:
+      security:
+        applies-to: security-updates
+        patterns:
+          - "*"
